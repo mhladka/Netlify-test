@@ -1,0 +1,220 @@
+/* nejsme vcerejsi, pouzivame moderni box model */
+* { box-sizing: border-box; }
+
+/*
+ BARVY
+ sede pozadi      #e5e5e5
+ svetle fialova   #48418e
+ tmave fialova    #25133d
+
+ POUZITE PISMO
+ Source Sans Pro - rezy pisma light 300, regular 400 a bold 700
+ https://fonts.google.com/specimen/Roboto
+*/
+
+
+/* ----- zde zacni psat vlastni css ----- */
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #e5e5e5;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.obal {
+    width: 960px; /* obsah stránky je omezený do pruhu širokého 960px */
+    margin: 0 auto; /* pruh je na stránce vycentrovaný */
+    background: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* ----- menu ----- */
+header {
+    display: flex;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+nav li {
+    display: inline-block;
+}
+
+nav a {
+    display: block;
+    padding: 15px 30px;
+    color: #25133d;
+    text-decoration: none;
+}
+
+nav a:hover,
+nav a:focus,
+nav a:active {
+    background-color: #48418e;
+    color: white;
+}
+
+.brand {
+    padding: 15px 40px;
+    font-weight: 700;
+    color: #25133d;
+}
+
+
+
+/* ----- banner (barevný pruh s obrázkem) ----- */
+
+.banner {
+    position: relative;  /* abychom v rámci banneru mohli absolutně pozicovat ruku s telefonem */
+    min-height: 450px; /* minimální výška je 450px - pokud bude uvnitř více obsahu, tak se sekce roztáhne podle potřeby na větší výšku (ale minimálně zabírá 450px) */
+    padding: 60px 40px; /*padding pro celou sekci, abychom nemuseli každý prvek uvnitř odsazovat zleva od okraje */
+    color: white;
+    background-color: #2c3e50; /* když se nepodaří načíst obrázek na pozadí (viz. další řádek), použije se na pozadí tato barva */
+    background-image: url('images/pozadi.jpg'); /* obrázek na pozadí */
+    background-size: cover; /* pozadi se roztáhne na takovou velikost, aby z něj bylo vidět co nejvíce, ale aby stále pokrylo celý objekt ve všech směrech */
+}
+
+.titulek {
+    margin: 0; /* vynulujeme margin, aby nám titulek svým obrosvkým marginem neodsouval menu nahoře */
+    font-size: 90px;
+    font-weight: 400;
+    line-height: 1;
+    color: white;
+}
+
+.podtitulek {
+    margin: 50px 0;
+    font-size: 36px;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.tlacitko {
+    display: inline-block;
+    padding: 1em 1.5em;
+    font-size: 20px;
+    line-height: 1;
+    color: white;
+    text-decoration: none;
+    border: 1px solid white;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.tlacitko-fialove {
+    margin-right: 20px;
+    background-color: #48418e;
+}
+
+.tlacitko:hover,
+.tlacitko:focus,
+.tlacitko:active {
+    background-color: #25133d;
+    color: white;
+}
+
+.telefon {
+    /* obrázek telefonu napozicovaný absolutně do pravého dolního rohu banneru */
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+
+
+/* ----- obsah stránky (bílý pruh s textem ve 3 sloupcích)----- */
+
+.obsah {
+    display: flex;
+}
+
+.sloupec {
+    margin: 5%; /* mezi sloupci je mezera 5% */
+    text-align: center;
+}
+
+h2 {
+    margin: 10px 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: #48418e;
+}
+
+.ikona {
+    width: 70px;
+    height: auto;
+}
+
+
+/* ----- paticka ----- */
+
+footer {
+    padding: 10px 40px;
+    font-size: 14px;
+    font-weight: 300;
+    background-color: #48418e;
+    color: white;
+    text-align: center;
+}
+
+/* ----- media queries ----- */
+
+@media (min-width: 360px) and (max-width: 450px) {
+    
+    .obal {
+        width: 100%;
+    }
+    
+    .brand,
+    nav a {
+        padding: 5px 10px;
+        text-align: center;
+    }
+  
+    .titulek {
+        font-size: 56px;
+    }
+
+    .podtitulek {
+        font-size: 24px;
+    }
+
+    .tlacitko {
+        width: 40%;
+        font-size: 16px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .tlacitko-fialove {
+        margin-bottom: 20px; 
+    }
+   
+    .telefon {
+        width: 50%;        
+    }
+    
+    .obsah {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 660px) and (max-width: 850px) {
+    
+    .obal {
+        width: 100%;
+    }
+
+    .telefon {
+        width: 38%;
+    }
+}
